@@ -10,22 +10,21 @@ function currentDay(){
 
 
 function checkEventTimes(){
-
-    for (i = 1; i < tableRowsEl.length; i++){
-        // creates a moment rounding down to the nearest hour
+    for(i = 1; i < tableRowsEl.length; i++){
         var currentTimeHour = moment().minutes(0).seconds(0);
-        var intervalTime = tableRowsEl[1].children[0].getAttribute("data-hours");
-        var intervalDateTimer =moment().hours(intervalTime).minutes(0).seconds(0);        
+        var intervalTime = tableRowsEl[i].children[0].getAttribute("data-hours");
+        var intervalDateTimer = moment().hours(intervalTime).minutes(0).seconds(0);        
         
-        
-        if(moment(intervalDateTimer).isBefore(currentTimeHour)){
-            tableRowsEl[i].addClass("past");
+    
+        if(moment(intervalDateTimer).isBefore(currentTimeHour)){        
+        tableRowsEl[i].classList.add("past");
         }else if(moment(intervalDateTimer).isSame(currentTimeHour)){
-            tableRowsEl[i].addClass("present");
+            tableRowsEl[i].classList.add("present");
         }else{
-            tableRowsEl[i].addClass("future");
+            tableRowsEl[i].classList.add("future");
         }
     }
 }
-
 currentDayEl.text(moment().format("DD/MM/YYYY"));
+checkEventTimes();
+
