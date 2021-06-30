@@ -1,6 +1,6 @@
 var currentDayEl = $("#currentDay");
 var tableRowsEl = $("tr");
-
+var saveBtnEl = $(".saveBtn");
 
 //sets our current day
 function currentDay(){
@@ -25,6 +25,21 @@ function checkEventTimes(){
         }
     }
 }
+
+function saveContent(event){
+    event.preventDefault();
+    var siblingElText = $(event.target).siblings().eq(1).val();
+    var intervalText = $(event.target).siblings().first().attr("data-hours");
+
+    console.log($(event.target).siblings().eq(1).text());
+    console.log($(event.target).siblings().first());
+
+
+    console.log(siblingElText + " " + intervalText);
+}
+
 currentDayEl.text(moment().format("DD/MM/YYYY"));
 checkEventTimes();
+
+saveBtnEl.on("click", saveContent);
 
