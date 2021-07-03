@@ -28,8 +28,7 @@ function checkEventTimes(){
 
 function saveContent(event){
     event.preventDefault();
-    // var siblingElText = $(event.target).siblings().eq(1).val();
-    // var intervalText = $(event.target).siblings().first().attr("data-hours");
+    
     var currentInterval = $(event.target).attr("data-hours");
     var inputField = $("input[data-hours=currentInterval");
     console.log(currentInterval);
