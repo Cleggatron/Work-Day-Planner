@@ -28,14 +28,14 @@ function checkEventTimes(){
 
 function saveContent(event){
     event.preventDefault();
-    var siblingElText = $(event.target).siblings().eq(1).val();
-    var intervalText = $(event.target).siblings().first().attr("data-hours");
-
-    console.log($(event.target).siblings().eq(1).text());
-    console.log($(event.target).siblings().first());
-
-
-    console.log(siblingElText + " " + intervalText);
+    // var siblingElText = $(event.target).siblings().eq(1).val();
+    // var intervalText = $(event.target).siblings().first().attr("data-hours");
+    var currentInterval = $(event.target).attr("data-hours");
+    var inputField = $("input[data-hours=currentInterval");
+    console.log(currentInterval);
+    console.log(inputField);
+    console.log(inputField.val());
+   
 }
 
 currentDayEl.text(moment().format("DD/MM/YYYY"));
