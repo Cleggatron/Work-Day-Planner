@@ -1,7 +1,7 @@
 var currentDayEl = $("#currentDay");
 var tableRowsEl = $("tr");
 var saveBtnEl = $(".saveBtn");
-var clearScheduleEl = ("#clearSchedule");
+var clearScheduleEl = $("#clearSchedule");
 
 
 //sets our current day
@@ -109,3 +109,10 @@ saveBtnEl.on("click", saveContent);
 updateTaskEls();
 currentDayEl.text(moment().format("DD/MM/YYYY"));
 checkEventTimes();
+
+//set an autorefresh
+setInterval(function(){
+    window.location.reload(1);
+    console.log("Refresh");
+},3600000);
+
