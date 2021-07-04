@@ -1,13 +1,13 @@
 var currentDayEl = $("#currentDay");
 var tableRowsEl = $("tr");
 var saveBtnEl = $(".saveBtn");
+var clearScheduleEl = ("#clearSchedule");
 
 
 //sets our current day
 function currentDay(){
     currentDayEl.innerHTML = moment().format("DD/MM/YYYY");
 }
-
 
 //function check current time (rounded down) against the interval times
 function checkEventTimes(){
@@ -90,11 +90,22 @@ function updateTaskEls(){
 
 }
 
-currentDayEl.text(moment().format("DD/MM/YYYY"));
+//allows us to clear out our schedule
+function clearSchedule(){
+    var scheduledTasks = $("input");
+    // clear out out input fields
+    for(var i = 0; i < scheduledTasks.length; i++){
+        scheduledTasks[i].value = "";
+    }
+    //delete our local storage
+    localStorage.removeItem("storedTasksLS");
+}
 
-checkEventTimes();
-
+//event listeners
+clearScheduleEl.on("click", clearSchedule);
 saveBtnEl.on("click", saveContent);
 
-updateTaskEls()
-
+//functions run at load
+updateTaskEls();
+currentDayEl.text(moment().format("DD/MM/YYYY"));
+checkEventTimes();
