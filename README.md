@@ -24,7 +24,7 @@ Bear in mind that the tasks will be stored in the local storage of your browser.
 
 ## Usage
 
-![screenshot of the app in use](.\Assets\Screenshot.PNG)
+![screenshot of the app in use](Assets/Screenshot.PNG)
 
 The user types content into the "Scheduled Event" input field for the relevant interval, then clikcs save.
 
